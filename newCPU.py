@@ -19,20 +19,21 @@ def checkCPU():
     cpuUsage=psutil.cpu_percent(interval=measurementInterval)
     while runCheckCPU:
         cpuUsage=psutil.cpu_percent(interval=measurementInterval)
-        pct = int(targetUsage) / cpuUsage 
+        pct =cpuUsage/ int(targetUsage)  
         delay = delay * pct
         logging.info("checkCPU: usage="+str(cpuUsage)+"  new delay="+str(delay))
-        time.sleep(checkInterval-measurementInterval);
+        time.sleep(checkInterval)
     logging.info("Thread %s: finishing", name)
 
 def useCPU():
     logging.info("useCPU: starting")
     while runUseCPU:
         time.sleep(delay)
-        x=np.random.rand(100,100)
-        y=np.random.rand(100,100)
-        z=np.dot(x,y)
-        w=np.sort(z)
+        #x=np.random.rand(1000000,1000000)
+        y=np.random.rand(1000,1000)
+        #z=np.dot(x,y)
+        logging.info('z')
+		#w=np.sort(z)
 		# should put something here that uses some cpu
     logging.info("useCPU: ending")
 
@@ -42,8 +43,16 @@ if __name__ == "__main__":
 
     logging.info("Main    : starting")
     checkThread = threading.Thread(target=checkCPU, args=())
-    useThread = threading.Thread(target=useCPU, args=())
+    useThread1 = threading.Thread(target=useCPU, args=())
+    useThread2 = threading.Thread(target=useCPU, args=())
+    useThread3 = threading.Thread(target=useCPU, args=())
+    useThread4 = threading.Thread(target=useCPU, args=())
+    useThread5 = threading.Thread(target=useCPU, args=())
     checkThread.start()
-    useThread.start()
+    useThread1.start()
+    useThread2.start()
+    useThread3.start()
+    useThread4.start()
+    useThread5.start()
     logging.info("Main    : all done")
 
