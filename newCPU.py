@@ -2,6 +2,7 @@ import logging
 import threading
 import time
 import psutil
+import numpy as np
 
 delay=.0000001    # seconds
 checkInterval=2
@@ -27,8 +28,12 @@ def checkCPU():
 def useCPU():
     logging.info("useCPU: starting")
     while runUseCPU:
-       time.sleep(delay);
-       10000000000000000000**566# should put something here that uses some cpu
+        time.sleep(delay)
+        x=np.random.rand(100,100)
+        y=np.random.rand(100,100)
+        z=np.dot(x,y)
+        w=np.sort(z)
+		# should put something here that uses some cpu
     logging.info("useCPU: ending")
 
 if __name__ == "__main__":
