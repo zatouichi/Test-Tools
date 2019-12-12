@@ -26,9 +26,9 @@ def monitorSystem():
 	print("Average memory utilization was: "+ str(avgMem))
 
 if __name__=="__main__":
-	if sys.argv[1] != None:
+	try:
 		monitoringInterval=sys.argv[1]
-	else:
+	except:
 		monitoringInterval=input("How many minutes do you want to monitor CPU and Memory usage?")
 	t1=threading.Thread(target=monitorSystem, args=())
 	t1.start()
