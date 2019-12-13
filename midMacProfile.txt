@@ -1,0 +1,19 @@
+System Information	
+Operating System	macOS 10.13.6 (Build 17G66)
+Model	MacBook Pro (15-inch Retina Early 2013)
+Motherboard	Apple Inc. Mac-C3EC7CD22292981F MacBookPro10,1
+Memory	16384 MB 1600 MHz DDR3
+Northbridge	
+Southbridge	
+BIOS	Apple Inc. 257.0.0.0.0
+Processor Information	
+Name	Intel Core i7-3740QM
+Topology	1 Processor, 4 Cores, 8 Threads
+Identifier	GenuineIntel Family 6 Model 58 Stepping 9
+Base Frequency	2.70 GHz
+Package	
+Codename	
+L1 Instruction Cache	32.0 KB x 4
+L1 Data Cache	32.0 KB x 4
+L2 Cache	256 KB x 4
+L3 Cache	6.00 MB x 
