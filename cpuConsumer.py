@@ -5,11 +5,11 @@ import time
 import psutil
 import numpy as np
 import datetime
+import sys
 from random import randint
 delay=.0000001    # seconds
 checkInterval=2
 measurementInterval=1
-targetUsage=input("What is the target percentage of CPU usage?")
 
 runCheckCPU=True
 runUseCPU=True
@@ -43,14 +43,24 @@ def useCPU():
 if __name__ == "__main__":
     format = "%(asctime)s: %(message)s"
     logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
-    cpuConsumptionInterval=input("How many minutes do you want to consume CPU for?")
+    try: 
+        cpuConsumptionInterval=sys.argv[1]
+    except:
+        cpuConsumptionInterval=input("How many minutes do you want to consume CPU for?")
+    try: 
+        targetUsage=sys.argv[2]
+    except:
+        targetUsage=input("What is the target percentage of CPU usage?")       
     logging.info("Main    : starting")
     checkThread = threading.Thread(target=checkCPU, args=())
-    numThreads=input("How many threads do you want to spawn?")
-    for i in range (0, numThreads):
-        str(i) = threading.Thread(target=useCPU, args=())
-        str(i).start()
+    #numThreads=input("How many threads do you want to spawn?")
+    #threadList=[]
+    #for i in range (0,int(numThreads)):
+    x = threading.Thread(target=useCPU, args=())
+    x.start()
     #useThread2 = threading.Thread(target=useCPU, args=())
+    y = threading.Thread(target=useCPU, args=())
+    y.start()
     #useThread3 = threading.Thread(target=useCPU, args=())
     #useThread4 = threading.Thread(target=useCPU, args=())
     #useThread5 = threading.Thread(target=useCPU, args=())
