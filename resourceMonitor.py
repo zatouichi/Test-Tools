@@ -37,7 +37,7 @@ if __name__=="__main__":
 	try:
 		monitoringInterval=sys.argv[1]
 	except:
-		monitoringInterval=input("How many minutes do you want to monitor CPU and Memory usage?")
+		monitoringInterval=input("How many minutes do you want to monitor Disk, CPU, and Memory usage?")
 	t1=threading.Thread(target=monitorSystem, args=())
 	t1.start()
 	time.sleep(int(monitoringInterval)*60)
